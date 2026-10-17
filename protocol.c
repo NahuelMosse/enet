@@ -868,6 +868,7 @@ enet_protocol_handle_acknowledge (ENetHost * host, ENetEvent * event, ENetPeer *
 
     roundTripTime = ENET_TIME_DIFFERENCE (host -> serviceTime, receivedSentTime);
     roundTripTime = ENET_MAX (roundTripTime, 1);
+    peer -> roundTripTimeSample = roundTripTime;
 
     if (peer -> lastReceiveTime > 0)
     {
